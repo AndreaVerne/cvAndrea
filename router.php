@@ -26,6 +26,10 @@ switch ($params[0]) {
         $productController->showHome(false);
         break;
     case 'vacaciones':
+        if (isset($params[1]) && $params[1]=='agregarArt') {
+            $vacacionesController->agregarArticulo();
+        }
+
         if (isset($_POST['action'])) {
             $action = $_POST['action'];
 
@@ -41,10 +45,14 @@ switch ($params[0]) {
                         echo "Error: No se proporcionó el ID del artículo";
                     }
                     break;
-                    // Puedes agregar más casos para otras acciones si es necesario
+            
             }
         }
-        $vacacionesController->showVacaciones();
+        $vacacionesController->showVacaciones($mensaje = '');
+
+
+
+
         break;
     case 'agregar':
         $productController->showForm();

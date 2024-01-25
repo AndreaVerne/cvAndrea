@@ -43,6 +43,15 @@
 
   <section class="container">
 
+
+  <?php if (isset($_GET['mensaje']) && $_GET['mensaje'] == 'ok'): ?>
+    <div class="alert alert-success alert-dismissible fade show mensaje" role="alert">
+       Se agregó tu artículo
+        <img src="https://media.tenor.com/lsxlBqcl3IEAAAAj/hamster-hamtaro.gif">
+
+    </div>
+<?php endif; ?>
+
     <h1>♥ Vacaciones Anddi y Tomy ♥</h1>
 
 
@@ -176,9 +185,9 @@
       <?php } ?>
     </div>
 
-    <div class="form container mt-5">
+    <div class="form m-5 p-4">
       <h2 class="mb-4">Agregar Artículo</h2>
-      <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" class="needs-validation" novalidate>
+      <form method="post" action="agregarArt" class="needs-validation" novalidate>
         <div class="form-group">
           <label for="nombre">Nombre:</label>
           <input type="text" id="nombre" name="nombre" class="form-control" required>
@@ -400,8 +409,6 @@
 
 
   .container {
-
-    font-family: 'Didact Gothic', sans-serif;
     width: 100%;
 
     min-height: 100vh;
@@ -418,6 +425,8 @@
   }
 
 .form{
+  font-family: 'Didact Gothic', sans-serif;
+  width: 50%;
   background-color: #fff;
   border-radius: 15px;
   color: rgb(247, 82, 185);
@@ -814,5 +823,16 @@
 
     border-radius: 10px;
 
+  }
+
+  .mensaje{
+    margin: 2rem;
+    font-size: 2rem;
+    background-color: rgb(247, 210, 233);
+    border-color:rgb(247, 210, 233); 
+    box-shadow: 6px 6px 11px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    font-weight: bolder;
+    font-family: 'Courier New', Courier, monospace;
   }
 </style>

@@ -11,15 +11,15 @@ class VacacionesModel
 
     private function conection()
     {
-        //  $servername = "localhost";
-        //  $username = "andreave_admin";
-        //  $password = "Muni3arm0955"; //cambiar 
-        //  $dbname = "andreave_vacaciones";
+         $servername = "localhost";
+         $username = "andreave_admin";
+         $password = "Muni3arm0955"; //cambiar 
+         $dbname = "andreave_vacaciones";
 
-        $servername = "localhost";
-       $username = "root";
-       $password = "Muni3ar013"; //cambiar 
-       $dbname = "andreave_vacaciones";
+    //     $servername = "localhost";
+    //    $username = "root";
+    //    $password = "Muni3ar013"; //cambiar 
+    //    $dbname = "andreave_vacaciones";
 
         // Crear conexión
         $conn = new mysqli($servername, $username, $password, $dbname);
@@ -46,6 +46,33 @@ class VacacionesModel
         return $result;
     }
 
+    public function agregarArticulo($nombre, $idCategoria) {
+        // Preparar la consulta SQL
+        $sql = "INSERT INTO articulos (nombre, id_categoria) VALUES (?, ?)";
+        $stmt = $this->conn->prepare($sql);
+    
+        // Verificar si la preparación fue exitosa
+        if ($stmt) {
+            // Suponiendo que $nombre y $idCategoria son las variables con los valores a insertar
+            $stmt->bind_param("si", $nombre, $idCategoria);
+    
+            // Ejecutar la sentencia preparada para insertar los datos
+            $stmt->execute();
+
+              // Verificar si la ejecución fue exitosa
+              if ($stmt->affected_rows > 0) {
+                // La inserción fue exitosa
+                return true;
+            } else {
+                // La inserción no fue exitosa
+                return false;
+            }
+    
+        } else {
+            // Si hubo un error al preparar la consulta
+            die('Error al preparar la consulta: ' . $this->conn->error);
+        }
+    }
 
     //PRODUCTO
     public function getAgregado($id)
