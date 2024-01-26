@@ -1,0 +1,237 @@
+  * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+  }
+  
+  body {
+      display: grid;
+      place-items: center;
+      font-size: 50px;
+      /* font-family: 'Share Tech Mono', monospace; */
+      /* font-family: 'Great Vibes', cursive; */
+      font-family: 'Sacramento', cursive;
+      background-color: rgb(252, 149, 213);
+  }
+  
+  .container {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-size: medium;
+  }
+  
+  .form {
+      font-family: 'Didact Gothic', sans-serif;
+      width: 50%;
+      background-color: #fff;
+      border-radius: 15px;
+      color: rgb(247, 82, 185);
+      align-items: center;
+  }
+  
+  .btn-primary {
+      background-color: rgb(247, 82, 185);
+      border-color: rgb(247, 82, 185);
+  }
+  
+  #imagenMotivacional {
+      margin: 3rem;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      /* background: url('https://pbs.twimg.com/media/C82AvQkXcAAXq7U.jpg'); */
+  }
+  
+  #imgMotiv {
+      border-radius: 100px;
+      width: 300px;
+      height: 300px;
+  }
+  
+  .countdown {
+      display: flex;
+      justify-content: space-evenly;
+      width: 50%;
+      flex-wrap: wrap;
+  }
+  
+  .countdown div {
+      display: grid;
+      place-items: center;
+      padding: 10px;
+  }
+  
+  h1 {
+      text-align: center;
+      color: #fff;
+      font-size: 4rem;
+      padding: 30px 10px;
+  }
+  
+  p {
+      display: grid;
+      place-items: center;
+      /* border: solid 1px #fff; */
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 2rem;
+      font-weight: bold;
+      background-color: rgb(247, 82, 185)
+  }
+  
+  span {
+      display: block;
+      padding: 10px;
+      text-align: center;
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 400;
+  }
+  
+  .final-sms {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      display: grid;
+      place-items: center;
+      transform: translateY(-100%);
+      transition: ease-in-out 0.5s;
+      background-color: #333;
+  }
+  
+  .final-sms h2 {
+      text-align: center;
+      font-size: 100px;
+      color: #fff;
+  }
+  /*lista*/
+  
+  .shopping {
+      font-family: 'Didact Gothic', sans-serif;
+      font-size: 2rem;
+      padding: 2.4em 2em;
+      margin: 2rem;
+      /* display: grid; */
+      background: white;
+      box-shadow: 2px 0 15px -2px rgba(0, 0, 0, 0.2);
+      border-radius: 12px;
+      min-width: 300px;
+  }
+  
+  .shopping__title {
+      font-size: 1.4em;
+      font-weight: 700;
+      text-align: center;
+      padding-bottom: 1em;
+      border-bottom: 4px dotted var(--primary-color);
+      color: var(--primary-color);
+  }
+  
+  .shopping__checklist {
+      display: grid;
+      list-style-type: none;
+  }
+  /* Shopping List */
+  /*  =========== */
+  /*  =========== */
+  
+  .shopping__item {
+      display: flex;
+      align-items: center;
+      gap: 0.6em;
+  }
+  
+  .shopping__check {
+      appearance: none;
+      cursor: pointer;
+      margin-top: 1px;
+      padding: 3px;
+      aspect-ratio: 1/1;
+      height: 1.2em;
+      border: 1px solid var(--primary-color);
+      border-radius: 4px;
+  }
+  
+  .shopping__label {
+      user-select: none;
+      cursor: pointer;
+      color: rgb(247, 82, 185);
+      flex-grow: 1;
+  }
+  /* 
+  .shopping__label.color-mas-oscuro {
+
+    color: rgb(247, 82, 185);
+
+} */
+  
+  .shopping__check:checked {
+      /* background: var(--primary-color); */
+      background-clip: content-box;
+      opacity: 0.4;
+  }
+  
+  .shopping__label.agregado {
+      color: rgb(252, 149, 213);
+      text-decoration: line-through;
+      opacity: 0.8;
+  }
+  
+  .shopping__check:checked+.shopping__label {
+      /* text-decoration: */
+      /* pink 2px; */
+      color: rgb(252, 149, 213);
+      opacity: 0.3;
+  }
+  /* imagen con tomy */
+  
+  .polaroid {
+      position: relative;
+      max-width: 200px;
+      /* Ajusta el ancho máximo según tus preferencias */
+      /* margin: 50px auto; */
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+  }
+  
+  .polaroid img {
+      width: 50%;
+      height: auto;
+      display: block;
+      border-radius: 5px;
+      margin-bottom: 10px;
+  }
+  
+  .polaroid::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+      z-index: -1;
+      border-radius: 10px;
+  }
+  
+  .mensaje {
+      margin: 2rem;
+      font-size: 2rem;
+      background-color: rgb(247, 210, 233);
+      border-color: rgb(247, 210, 233);
+      box-shadow: 6px 6px 11px rgba(0, 0, 0, 0.1);
+      color: #fff;
+      font-weight: bolder;
+      font-family: 'Courier New', Courier, monospace;
+  }

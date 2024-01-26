@@ -11,15 +11,15 @@ class VacacionesModel
 
     private function conection()
     {
-         $servername = "localhost";
-         $username = "andreave_admin";
-         $password = "Muni3arm0955"; //cambiar 
-         $dbname = "andreave_vacaciones";
+        //  $servername = "localhost";
+        //  $username = "andreave_admin";
+        //  $password = "Muni3arm0955"; //cambiar 
+        //  $dbname = "andreave_vacaciones";
 
-    //     $servername = "localhost";
-    //    $username = "root";
-    //    $password = "Muni3ar013"; //cambiar 
-    //    $dbname = "andreave_vacaciones";
+        $servername = "localhost";
+       $username = "root";
+       $password = "Muni3ar013"; //cambiar 
+       $dbname = "andreave_vacaciones";
 
         // Crear conexión
         $conn = new mysqli($servername, $username, $password, $dbname);

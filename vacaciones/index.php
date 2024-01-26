@@ -44,13 +44,13 @@
   <section class="container">
 
 
-  <?php if (isset($_GET['mensaje']) && $_GET['mensaje'] == 'ok'): ?>
-    <div class="alert alert-success alert-dismissible fade show mensaje" role="alert">
-       Se agregó tu artículo
+    <?php if (isset($_GET['mensaje']) && $_GET['mensaje'] == 'ok') : ?>
+      <div class="alert alert-success alert-dismissible fade show mensaje" role="alert">
+        Se agregó tu artículo
         <img src="https://media.tenor.com/lsxlBqcl3IEAAAAj/hamster-hamtaro.gif">
 
-    </div>
-<?php endif; ?>
+      </div>
+    <?php endif; ?>
 
     <h1>♥ Vacaciones Anddi y Tomy ♥</h1>
 
@@ -144,7 +144,7 @@
 
     </div>
 
-    <div>
+    <div class="iframe">
 
       <h1>Recorrido</h1>
 
@@ -211,6 +211,76 @@
       </form>
 
     </div>
+    <?php
+    $comidas = [
+      [
+
+        'comida' => 'Desayuno',
+        'Dom' => 'Cafe con leche y panquequitos',
+        'Lun' => 'Huevos revueltos',
+        'Mar' => 'Cereal con frutas',
+        'Mié' => 'Yogur con granola',
+      ],
+      [
+
+        'comida' => 'Media Mañana',
+        'Dom' => 'Manzana con crema de cacahuate',
+        'Lun' => 'Panquequitos de avena',
+        'Mar' => 'Batido de frutas',
+        'Mié' => 'Frutos secos'
+      ],
+      [
+
+        'comida' => 'Almuerzo',
+        'Dom' => 'Pescado a la parrilla',
+        'Lun' => 'Pollo asado con verduras',
+        'Mar' => 'Pasta primavera',
+        'Mié' => 'Ensalada de quinoa'
+      ],
+      [
+
+        'comida' => 'Merienda',
+        'Dom' => 'Batido de proteínas',
+        'Lun' => 'Smoothie verde',
+        'Mar' => 'Palitos de zanahoria con hummus',
+        'Mié' => 'Yogur con nueces'
+      ],
+      [
+
+        'comida' => 'Cena',
+        'Dom' => 'Pizza casera',
+        'Lun' => 'Lasaña de vegetales',
+        'Mar' => 'Sopa de lentejas',
+        'Mié' => 'Tacos de pescado'
+      ],
+    ];
+
+    $dias_semana = ['Dom', 'Lun', 'Mar', 'Mié'];
+    ?>
+
+    <table class="cal">
+      <thead>
+        <tr>
+          <th></th>
+          <?php foreach ($dias_semana as $dia) { ?>
+            <th><?php echo $dia; ?></th>
+          <?php } ?>
+        </tr>
+      </thead>
+
+      <tbody>
+        <?php foreach ($comidas as $comida) { ?>
+          <tr>
+            <td class=<?php echo $comida['comida'] ?> style="font-weight: bold;"><?php echo $comida['comida'] ?></td>
+            <?php foreach ($dias_semana as $dia) { ?>
+              <td class="<?php echo $comida['comida']; ?>">
+                <?php echo $comida[$dia]; ?><span> <?php echo $comida['span']; ?></span>
+              </td>
+            <?php } ?>
+          </tr>
+        <?php } ?>
+      </tbody>
+    </table>
   </section>
 
   <section class="final-sms">
@@ -219,9 +289,38 @@
 
   </section>
 
+  <?php
+  $compras = [
+    ['id' => 1, 'nombre' => 'Producto A', 'cantidad' => 5, 'precio' => 10.99],
+    ['id' => 2, 'nombre' => 'Producto B', 'cantidad' => 3, 'precio' => 20.50],
+    // ... más datos ...
+  ];
+  ?>
+  <!-- <div class="container mt-5">
+    <h2>Tabla de Compras</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($compras as $compra) : ?>
+            <tr>
+                <td><?= $compra['id']; ?></td>
+                <td><?= $compra['nombre']; ?></td>
+                <td><?= $compra['cantidad']; ?></td>
+                <td><?= $compra['precio']; ?></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div> -->
+
   <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
-
-
 
   <script>
     const $days = document.getElementById('days'),
@@ -293,8 +392,6 @@
     }, 1000);
   </script>
 
-
-
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
   <script>
@@ -365,17 +462,138 @@
     });
   </script>
 
-
-
 </body>
-
-
 
 </html>
 
-
-
 <style>
+  table.cal {
+    font-family: 'Didact Gothic', sans-serif;
+    display: inline-block;
+    min-height: 600px;
+    width: 97%;
+    color: #06425c;
+    border-spacing: 0;
+    border: 1px solid grey;
+    border-radius: 20px 20px 20px 20px;
+    padding: 2%;
+    margin: 2%;
+  }
+
+  thead>tr>th {
+    background-color: rgb(247, 82, 185);
+    border: 1px solid white;
+    border-radius: 10px;
+    height: 50px;
+    text-align: center;
+    vertical-align: center;
+    font-size: 25px;
+    margin: 1%;
+    padding: 1%;
+  }
+
+  tr:nth-child(odd) {
+
+    border-radius: 10px 10px 10px 10px;
+    padding: 1%;
+    margin: 1%;
+  }
+
+  tr:nth-child(even) {
+    border-radius: 10px 10px 10px 10px;
+    padding: 1%;
+    margin: 1%;
+  }
+
+  tr:last-child {
+    border-radius: 0 0 10px 10px;
+    padding: 1%;
+    margin: 1%;
+  }
+
+  tr:last-child>td:first-child {
+    border-radius: 10px;
+    padding: 1%;
+    margin: 1%;
+  }
+
+  tr:last-child>td:last-child {
+    padding: 1%;
+    margin: 1%;
+    border-radius: 10px;
+  }
+
+  table.cal>tbody>th,
+  td {
+    display: in-line;
+    width: 10%;
+    margin: 2%;
+    padding: 2%;
+    height: 60px;
+    border: 2px outset white;
+    vertical-align: top;
+
+    text-align: center;
+    border-radius: 10px;
+  }
+
+  th {
+    text-align: center;
+    background: #ffffff;
+    border: 2px outset grey;
+  }
+
+  .horas {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(247, 82, 185);
+  }
+
+
+  .Desayuno {
+    padding: 0;
+    margin: 2rem;
+    background-color: #FF8A80;
+  }
+
+  .Almuerzo {
+    padding: 0;
+    margin: 0;
+    background-color: #B39DDB;
+  }
+
+  .Merienda {
+    padding: 0;
+    margin: 0;
+    background-color: #FFCDD2;
+  }
+
+  .Cena {
+    padding: 0;
+    margin: 0;
+    background-color: #008080;
+  }
+
+  span {
+    display: block;
+    text-align: center;
+    color: #800000;
+    visibility: hidden;
+  }
+
+  td:active>span {
+    visibility: visible;
+  }
+
+  .iframe {
+    width: 100%;
+    height: 100%;
+  }
+
+  iframe {
+    width: 100%;
+  }
+
   * {
 
     padding: 0;
@@ -424,19 +642,19 @@
 
   }
 
-.form{
-  font-family: 'Didact Gothic', sans-serif;
-  width: 50%;
-  background-color: #fff;
-  border-radius: 15px;
-  color: rgb(247, 82, 185);
-  align-items: center;
-}
+  .form {
+    font-family: 'Didact Gothic', sans-serif;
+    width: 50%;
+    background-color: #fff;
+    border-radius: 15px;
+    color: rgb(247, 82, 185);
+    align-items: center;
+  }
 
-.btn-primary{
-  background-color: rgb(247, 82, 185);
-  border-color: rgb(247, 82, 185);
-}
+  .btn-primary {
+    background-color: rgb(247, 82, 185);
+    border-color: rgb(247, 82, 185);
+  }
 
   #imagenMotivacional {
 
@@ -825,11 +1043,11 @@
 
   }
 
-  .mensaje{
+  .mensaje {
     margin: 2rem;
     font-size: 2rem;
     background-color: rgb(247, 210, 233);
-    border-color:rgb(247, 210, 233); 
+    border-color: rgb(247, 210, 233);
     box-shadow: 6px 6px 11px rgba(0, 0, 0, 0.1);
     color: #fff;
     font-weight: bolder;
